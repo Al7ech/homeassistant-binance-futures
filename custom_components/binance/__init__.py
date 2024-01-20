@@ -16,7 +16,7 @@ REQUIREMENTS = ["python-binance==1.0.19"]
 DOMAIN = "binance"
 
 DEFAULT_NAME = "Binance"
-DEFAULT_DOMAIN = "us"
+DEFAULT_DOMAIN = "com"
 DEFAULT_CURRENCY = "USD"
 CONF_API_SECRET = "api_secret"
 CONF_BALANCES = "balances"
@@ -98,7 +98,7 @@ class BinanceData:
         _LOGGER.debug(f"Fetching data from binance.{self.tld}")
         try:
             account_info = self.client.futures_account()
-            balances = account_info.get("balances", [])
+            balances = account_info.get("assets", [])
             if balances:
                 self.balances = balances
                 _LOGGER.debug(f"Balances updated from binance.{self.tld}")
