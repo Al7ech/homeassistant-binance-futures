@@ -30,15 +30,16 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
 
     if discovery_info is None:
         return
-    if all(i in discovery_info for i in ["name", "asset", "free", "locked", "native"]):
+    if all(i in discovery_info for i in ["name", "asset", "walletBalance", "unrealizedProfit", "marginBalance"]):
         name = discovery_info["name"]
         asset = discovery_info["asset"]
-        free = discovery_info["free"]
-        locked = discovery_info["locked"]
+        wallet_balance = discovery_info["walletBalance"]
+        unrealized_profit = discovery_info["unrealizedProfit"]
+        margin_balance = discovery_info["marginBalance"]
         native = discovery_info["native"]
 
         sensor = BinanceSensor(
-            hass.data[DATA_BINANCE], name, asset, free, locked, native
+            hass.data[DATA_BINANCE], name, asset, wallet_balance, unrealized_profit, margin_balance, native
         )
     elif all(i in discovery_info for i in ["name", "symbol", "price"]):
         name = discovery_info["name"]
