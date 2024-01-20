@@ -11,7 +11,7 @@ from homeassistant.helpers.discovery import load_platform
 from homeassistant.util import Throttle
 
 __version__ = "1.0.1"
-REQUIREMENTS = ["python-binance==1.0.10"]
+REQUIREMENTS = ["python-binance==1.0.19"]
 
 DOMAIN = "binance"
 
