@@ -176,9 +176,9 @@ class BinancePositionSensor(SensorEntity):
         self._binance_data.update()
         for position in self._binance_data.positions:
             if position["symbol"] == self._symbol:
-                self._state = balance["positionAmt"]
-                self._position_amount = balance["positionAmt"]
-                self._unrealized_profit = balance["unrealizedProfit"]
+                self._state = position["positionAmt"]
+                self._position_amount = position["positionAmt"]
+                self._unrealized_profit = position["unrealizedProfit"]
 
         for ticker in self._binance_data.tickers:
             if ticker["symbol"] == self._symbol:
