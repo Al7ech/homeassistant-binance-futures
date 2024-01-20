@@ -1,12 +1,12 @@
 {
   "domain": "binance",
   "name": "Binance",
-  "documentation": "https://github.com/drinfernoo/homeassistant-binance",
-  "issue_tracker": "https://github.com/drinfernoo/homeassistant-binance/issues",
+  "documentation": "https://github.com/Al7ech/homeassistant-binance-futures",
+  "issue_tracker": "https://github.com/Al7ech/homeassistant-binance-futures/issues",
   "dependencies": [],
   "version": "1.0.1",
   "codeowners": [
-    "@drinfernoo"
+    "@al7ech"
   ],
   "requirements": [
     "python-binance==1.0.19"

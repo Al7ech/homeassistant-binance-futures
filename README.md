@@ -21,15 +21,15 @@ binance:
 ```
 
 #### Configuration variables:
-| Key               | Type   | Required | Description                            | Default |
-| :---------------- | :----: | :------: |:-------------------------------------- | :-----: |
-| `name`            | string | No       | Name for the created sensors           | Binance |
-| `domain`          | string | No       | Binance domain to query                | us      |
-| `native_currency` | string | No       | Native currency for price calculations | USD     |
-| `api_key`         | string | Yes      | Binance API key                        | -       |
-| `api_secret`      | string | Yes      | Binance API secret                     | -       |
-| `balances`        | array  | No       | List of coins for wallet balances      | -       |
-| `exchanges`       | array  | No       | List of pairs for exchange rates       | -       |
+| Key               | Type   | Required | Description                                         | Default |
+| :---------------- | :----: | :------: |:----------------------------------------------------| :-----: |
+| `name`            | string | No       | Name for the created sensors                        | Binance |
+| `domain`          | string | No       | Binance domain to query                             | us      |
+| `native_currency` | string | No       | Native currency for price calculations              | USD     |
+| `api_key`         | string | Yes      | Binance API key                                     | -       |
+| `api_secret`      | string | Yes      | Binance API secret                                  | -       |
+| `balances`        | array  | No       | List of coins (of futures) for wallet balances      | -       |
+| `exchanges`       | array  | No       | List of pairs (of futures) for exchange rates       | -       |
 
 #### Full example configuration
 ```yaml
@@ -40,19 +40,17 @@ binance:
   api_key: !secret binance_api_key
   api_secret: !secret binance_api_secret
   balances:
-    - USD
-    - BTC
+    - USDT
     - ETH
   exchanges:
-    - BTCUSC
-    - ETHUSD
+    - BTCUSDT
+    - ETHUSDT
 ```
 This configuration will create the following entities in your Home Assistant instance:
-- My Binance USD Balance (`sensor.my_binance_usd_balance`)
-- My Binance BTC Balance (`sensor.my_binance_btc_balance`)
+- My Binance USD Balance (`sensor.my_binance_usdt_balance`)
 - My Binance ETH Balance (`sensor.my_binance_eth_balance`)
-- My Binance BTCUSD Exchange (`sensor.my_binance_btcusd_exchange`)
-- My Binance ETHUSD Exchange (`sensor.my_binance_ethusd_exchange`)
+- My Binance BTCUSD Exchange (`sensor.my_binance_btcusdt_exchange`)
+- My Binance ETHUSD Exchange (`sensor.my_binance_ethusdt_exchange`)
 
 ### Configuration details
 ---
