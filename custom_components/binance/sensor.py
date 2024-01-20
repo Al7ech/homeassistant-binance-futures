@@ -54,13 +54,14 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
 class BinanceSensor(SensorEntity):
     """Representation of a Sensor."""
 
-    def __init__(self, binance_data, name, asset, free, locked, native):
+    def __init__(self, binance_data, name, asset, wallet_balance, unrealized_profit, margin_balance, native):
         """Initialize the sensor."""
         self._binance_data = binance_data
         self._name = f"{name} {asset} Balance"
         self._asset = asset
-        self._free = free
-        self._locked = locked
+        self._wallet_balance = wallet_balance
+        self._unrealized_profit = unrealized_profit
+        self._margin_balance = margin_balance
         self._native = native
         self._unit_of_measurement = asset
         self._state = None
@@ -93,8 +94,9 @@ class BinanceSensor(SensorEntity):
         return {
             ATTR_ATTRIBUTION: ATTRIBUTION,
             ATTR_NATIVE_BALANCE: f"{self._native_balance} {self._native}",
-            ATTR_FREE: f"{self._free} {self._unit_of_measurement}",
-            ATTR_LOCKED: f"{self._locked} {self._unit_of_measurement}",
+            ATTR_WALLET_BALANCE: f"{self._wallet_balance} {self._unit_of_measurement}",
+            ATTR_UNREALIZED_PROFIT: f"{self._unrealized_profit} {self._unit_of_measurement}",
+            ATTR_MARGIN_BALANCE: f"{self._margin_balance} {self._unit_of_measurement}"
         }
 
     def update(self):
