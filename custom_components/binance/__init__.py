@@ -97,13 +97,13 @@ class BinanceData:
     def update(self):
         _LOGGER.debug(f"Fetching data from binance.{self.tld}")
         try:
-            account_info = self.client.get_account()
+            account_info = self.client.futures_account()
             balances = account_info.get("balances", [])
             if balances:
                 self.balances = balances
                 _LOGGER.debug(f"Balances updated from binance.{self.tld}")
 
-            prices = self.client.get_all_tickers()
+            prices = self.client.futures_symbol_ticker()
             if prices:
                 self.tickers = prices
                 _LOGGER.debug(f"Exchange rates updated from binance.{self.tld}")
