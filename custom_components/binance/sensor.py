@@ -114,6 +114,12 @@ class BinanceSensor(SensorEntity):
                     self._native_balance = round(float(balance["walletBalance"]), 2)
                 break
 
+        for ticker in self._binance_data.tickers:
+            if ticker["symbol"] == self._asset + self._native:
+                self._native_balance = round(
+                    float(ticker["price"]) * float(self._free), 2
+                )
+                break
 
 class BinanceExchangeSensor(SensorEntity):
     """Representation of a Sensor."""
