@@ -18,8 +18,9 @@ QUOTE_ASSETS = ["USD", "BTC", "USDT", "BUSD", "USDC"]
 DEFAULT_COIN_ICON = "mdi:currency-usd-circle"
 
 ATTRIBUTION = "Data provided by Binance"
-ATTR_FREE = "free"
-ATTR_LOCKED = "locked"
+ATTR_WALLET_BALANCE = "wallet_balance"
+ATTR_UNREALIZED_PROFIT = "unrealized_pnl"
+ATTR_MARGIN_BALANCE = "margin_balance"
 ATTR_NATIVE_BALANCE = "native_balance"
 
 DATA_BINANCE = "binance_cache"
