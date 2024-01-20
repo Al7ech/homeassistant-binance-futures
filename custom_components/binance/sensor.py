@@ -104,19 +104,13 @@ class BinanceSensor(SensorEntity):
         self._binance_data.update()
         for balance in self._binance_data.balances:
             if balance["asset"] == self._asset:
-                self._state = balance["free"]
-                self._free = balance["free"]
-                self._locked = balance["locked"]
+                self._state = balance["walletBalance"]
+                self._wallet_balance = balance["walletBalance"]
+                self._unrealized_profit = balance["unrealizedProfit"]
+                self._margin_balance = balance["marginBalance"]
 
                 if balance["asset"] == self._native:
-                    self._native_balance = round(float(balance["free"]), 2)
-                break
-
-        for ticker in self._binance_data.tickers:
-            if ticker["symbol"] == self._asset + self._native:
-                self._native_balance = round(
-                    float(ticker["price"]) * float(self._free), 2
-                )
+                    self._native_balance = round(float(balance["walletBalance"]), 2)
                 break
 
 
